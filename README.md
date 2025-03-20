@@ -129,5 +129,3 @@ python app.py
 
 ---
 
-This README provides a structured overview of the PillBot project, covering its purpose, functionality, setup, and expected impact.
-
