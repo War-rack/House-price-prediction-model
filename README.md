@@ -114,7 +114,9 @@ graph TD;
 !pip install pytesseract opencv-python numpy easyocr fuzzywuzzy python-Levenshtein nltk
 !pip install pytesseract opencv-python pandas fuzzywuzzy spacy transformers
 !pip install pytesseract opencv-python numpy easyocr fuzzywuzzy python-Levenshtein nltk
-# Import necessary libraries
+```
+## Import necessary libraries
+```bash
 import cv2
 import pytesseract
 import numpy as np
