@@ -35,6 +35,10 @@ graph TD;
 
 ```python
 # Load OCR models
+import torch
+from transformers import TrOCRProcessor, VisionEncoderDecoderModel
+from paddleocr import PaddleOCR
+
 trocr_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
 trocr_model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten").to(device)
 paddle_ocr = PaddleOCR(use_angle_cls=True, lang="en")
@@ -81,6 +85,25 @@ graph TD;
     C -->|User Receives Alert| D[Reminder Completion];
 ```
 
+## 🗂️ Dataset Details
+
+- **🖼️ Image Data:** Medicine package and prescription images.
+- **🍿 Custom Data:** Labeled images for training AI models.
+- **📊 Augmented Data:** Variants of images for model robustness.
+- **🔢 Data Labels:** Medicine names, dosage, and expiry information.
+
+## 📜 File Details
+
+- **`main.py`** - Core execution script.
+- **`model.py`** - AI model and OCR processing logic.
+- **`database.db`** - SQLite/PostgreSQL database for storing medicine details.
+- **`requirements.txt`** - List of dependencies.
+- **`README.md`** - Documentation and project overview.
+
+## 🏗️ About the Developer
+
+PillBot was developed by an AI/ML enthusiast with expertise in computer vision and deep learning. The project is a result of research and development aimed at simplifying healthcare accessibility through automation and AI-driven solutions.
+
 ## 🛠️ Installation & Dependencies
 
 ### ✅ Prerequisites
@@ -88,10 +111,10 @@ graph TD;
 - Python 3.8+
 - Virtual Environment (optional but recommended)
 
-### 🏦 Install Dependencies
+### 📦 Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install opencv-python numpy torch torchvision transformers paddleocr nltk symspellpy matplotlib albumentations paddlepaddle pillow
 ```
 
 ## 🔗 API Configuration
@@ -101,18 +124,16 @@ pip install -r requirements.txt
 - **Endpoint:** `https://api.drugbank.com/v1/drugs/search?q=Paracetamol`
 - **Returns:** Medicine name, solution, and related information.
 
+### ✍️ AI Models
+
+- `trocr-base-handwritten`
+- `trocr-base-printed`
 
 ### ▶️ Running the Application
 
 ```bash
 python app.py
 ```
-
-## 📚 Dataset & Features
-
-- **🖼️ Image Data:** Medicine package and prescription images.
-- **🍿 Custom Data:** Labeled images for training AI models.
-- **📊 Augmented Data:** Variants of images for model robustness.
 
 ## 📸 Screenshots
 
@@ -128,4 +149,6 @@ python app.py
 - **⏳ Celery** - Task Scheduling
 
 ---
+
+This README provides a structured overview of the PillBot project, covering its purpose, functionality, setup, and expected impact.
 
