@@ -1,111 +1,133 @@
-# 🏡 House Price Prediction
+# 💊 PillBot
 
-This repository contains a machine learning project for predicting house prices based on various features.
+## 📌 Overview
 
-## 📌 Problem Statement
-Predicting house prices accurately is crucial for buyers, sellers, and real estate professionals. This project aims to build a machine learning model that can estimate house prices based on various influencing factors.
+PillBot is an AI-powered medicine-selling platform designed to enhance user convenience by integrating Optical Character Recognition (OCR) for seamless medicine package scanning and WhatsApp-based automated medication reminders. The system is specifically designed for individuals aged 55-60 managing chronic conditions, ensuring timely medication intake and improving healthcare accessibility.
 
-## 💡 Concept
-The project leverages regression techniques to predict house prices by analyzing historical data. The dataset includes various attributes like location, size, number of bedrooms, and other features that affect property valuation.
+## 🌟 Concept
 
-## 🏗️ Architecture
+The core idea behind PillBot is to simplify the medicine purchasing and reminder process for elderly individuals. By leveraging OCR, AI-driven automation, and WhatsApp reminders, the platform minimizes human errors and enhances adherence to prescriptions, making medication management more efficient and accessible.
+
+## 🌍 Problem Statement
+
+PillBot aims to improve medication adherence by integrating OCR-based medicine recognition with WhatsApp reminders. The AI-driven approach minimizes errors and enhances accessibility for elderly users managing chronic conditions.
+
+## 🏗️ System Architecture
+
+### 🔧 Model Components
+
+1. **🌐 Medicine Recognition Engine**
+2. **📝 Prescription Analysis Module**
+3. **🌿 DrugBank API for Medicine Details**
+4. **📩 WhatsApp API for Reminders**
+
+### 📊 Model Architecture Flowchart
+
 ```mermaid
 graph TD;
-    A[Raw Data] -->|Preprocessing| B[Feature Engineering];
-    B -->|Train/Test Split| C[Model Training];
-    C -->|Regression Models| D[Prediction];
-    D -->|Evaluate| E[Performance Metrics];
+    A[User Uploads Image] -->|OCR Processing| B[Text Extraction];
+    B -->|AI Model Processing| C[Medicine Recognition];
+    C -->|Database Matching| D[Medicine Verification];
+    D -->|User Notification| E[WhatsApp Reminder System];
 ```
 
-![Architecture Diagram](architecture.png)
-## 📊 Dataset Features
+### 🌐 AI Models Used
 
-The dataset consists of the following key features:
+```python
+# Load OCR models
+trocr_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
+trocr_model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten").to(device)
+paddle_ocr = PaddleOCR(use_angle_cls=True, lang="en")
+```
 
-🆔 Id: Unique identifier for each property.
+## 👨‍💻 Data Preparation & Analysis
 
-📏 Area: The total area of the house in square feet.
+### 🔍 Data Preparation Steps
 
-🛏️ Bedrooms: The number of bedrooms in the house.
+1. **🎮 Data Augmentation:** Enhancing dataset diversity.
+2. **🛠️ Preprocessing:** Noise reduction and contrast enhancement.
+3. **📊 Model Training:** Fine-tuning AI models.
+4. **📊 Data Analysis:** Evaluating model performance through precision, recall, and accuracy metrics.
 
-🛁 Bathrooms: The number of bathrooms available.
+## ⚙️ How It Works
 
-🏢 Floors: The number of floors in the building.
+1. **🖼️ Medicine Recognition:**
+   - The user uploads an image of a medicine package or prescription.
+   - AI extracts the medicine name and matches it with the database.
+2. **📝 Prescription Processing:**
+   - OCR models extract text from prescriptions.
+   - Additional preprocessing is applied for better text recognition.
+3. **⏰ Automated Reminders:**
+   - Extracted medicine details are stored in the system.
+   - Twilio’s WhatsApp API and Celery handle scheduled reminders.
 
-🏗️ YearBuilt: The year the house was built.
+## 🏗️ Model-Specific Architectures
 
-📍 Location: The geographical location or neighborhood of the house.
+### 📜 OCR Model Architecture
 
-🚗 Garage: The number of parking spaces available.
+```mermaid
+graph TD;
+    A[Raw Prescription Image] -->|Preprocessing| B[OCR Engine];
+    B -->|Text Extraction| C[Medicine Name Identification];
+    C -->|Validation| D[Database Matching];
+```
 
-💲 Price: The price of the house (target variable for prediction).
+### 📩 Reminder System Architecture
 
-🏚️ Condition: The overall condition of the house (e.g., good, average, poor)
+```mermaid
+graph TD;
+    A[Extracted Medicine Info] -->|Store in Database| B[Schedule Reminder];
+    B -->|Send Notification| C[Twilio WhatsApp API];
+    C -->|User Receives Alert| D[Reminder Completion];
+```
 
-## ✨ Features
-- **📍 Location-Based Pricing**: Understands the effect of locality on prices.
-- **🏠 Property Attributes**: Number of rooms, size, and amenities.
-- **📊 Market Trends**: Considers historical price trends.
-- **📈 Advanced Regression Models**: Ridge, Lasso, and ElasticNet for better predictions.
+## 🛠️ Installation & Dependencies
 
-## 🔍 Steps for Data Preparation and Analysis
-1. **📂 Data Collection**: Load the dataset (`House Price Prediction Dataset.csv`).
-2. **🛠️ Data Cleaning**: Handle missing values and inconsistencies.
-3. **📉 Exploratory Data Analysis (EDA)**: Use visualization tools to understand trends.
-4. **🧬 Feature Engineering**: Apply encoding and scaling techniques.
-5. **✂️ Train-Test Split**: Divide data for training and evaluation.
-6. **🤖 Model Training**: Train regression models to learn from the data.
-7. **📏 Evaluation**: Measure model performance using Mean Squared Error (MSE).
+### ✅ Prerequisites
 
-## 🔧 Techniques Used
-- **📜 Data Processing**: Pandas, Seaborn
-- **⚙️ Feature Engineering**: One-hot Encoding, Standard Scaling
-- **🧠 Model Training**: Ridge, Lasso, ElasticNet Regression
-- **📊 Evaluation Metrics**: Mean Squared Error (MSE)
+- Python 3.8+
+- Virtual Environment (optional but recommended)
 
-## 🛠️ Built With
-- **🐍 Python** - Programming language
-- **📦 Scikit-Learn** - Machine Learning framework
-- **📊 Pandas** - Data analysis
-- **📈 Matplotlib & Seaborn** - Data visualization
-- **🧮 NumPy** - Numerical computing
+### 🏦 Install Dependencies
 
-## 📥 Installation
 ```bash
 pip install -r requirements.txt
 ```
-Additional steps:
-1. Ensure Python 3.8+ is installed.
-2. Install Jupyter Notebook for exploring the dataset.
-3. Download and place `House Price Prediction Dataset.csv` in the project directory.
 
-## 🚀 Usage
-```python
-python train.py
+## 🔗 API Configuration
+
+### 💊 DrugBank API
+
+- **Endpoint:** `https://api.drugbank.com/v1/drugs/search?q=Paracetamol`
+- **Returns:** Medicine name, solution, and related information.
+
+
+### ▶️ Running the Application
+
+```bash
+python app.py
 ```
 
-Additional usage options:
-- Run `jupyter notebook` to explore and visualize the dataset.
-- Modify `config.py` to adjust hyperparameters for training models.
-- Use `python evaluate.py` to check model performance on test data.
+## 📚 Dataset & Features
 
-## 📁 File Details
-- `train.py` - Main script to train models.
-- `evaluate.py` - Script for model evaluation.
-- `config.py` - Contains model hyperparameters.
-- `data/` - Directory storing the dataset.
+- **🖼️ Image Data:** Medicine package and prescription images.
+- **🍿 Custom Data:** Labeled images for training AI models.
+- **📊 Augmented Data:** Variants of images for model robustness.
 
-## 📊 Results
-The model's performance is evaluated using Mean Squared Error (MSE) to determine the accuracy of predictions.
+## 📸 Screenshots
 
-## 👨‍💻 About the Developer
-This project was developed by Pranaya as part of an effort to apply machine learning techniques to real-world problems. Contributions and suggestions are welcome!
+*(Include relevant images of UI and working process)*
 
-## 🤝 Contributing
-Feel free to contribute to this project by improving the models or adding new techniques.
+## 🛠️ Built With
 
-## 📜 License
-This project is open-source and available under the MIT License.
+- **🐍 Flask/Django** - Backend Framework
+- **🗃️ PostgreSQL** - Database Management
+- **🔍 Tesseract OCR** - Text Extraction
+- **🖼️ OpenCV** - Image Processing
+- **📩 Twilio WhatsApp API** - Messaging
+- **⏳ Celery** - Task Scheduling
 
+---
 
+This README provides a structured overview of the PillBot project, covering its purpose, functionality, setup, and expected impact.
 
