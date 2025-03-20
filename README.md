@@ -100,10 +100,6 @@ graph TD;
 - **`requirements.txt`** - List of dependencies.
 - **`README.md`** - Documentation and project overview.
 
-## 🏗️ About the Developer
-
-PillBot was developed by an AI/ML enthusiast with expertise in computer vision and deep learning. The project is a result of research and development aimed at simplifying healthcare accessibility through automation and AI-driven solutions.
-
 ## 🛠️ Installation & Dependencies
 
 ### ✅ Prerequisites
@@ -147,8 +143,10 @@ python app.py
 - **🖼️ OpenCV** - Image Processing
 - **📩 Twilio WhatsApp API** - Messaging
 - **⏳ Celery** - Task Scheduling
+## 🏗️ About the Developer
 
+PillBot was developed by Pranaya and Varun 
 ---
 
-This README provides a structured overview of the PillBot project, covering its purpose, functionality, setup, and expected impact.
+
 
