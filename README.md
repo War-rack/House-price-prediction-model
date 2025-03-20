@@ -76,7 +76,7 @@ Additional usage options:
 The model's performance is evaluated using Mean Squared Error (MSE) to determine the accuracy of predictions.
 
 ## 👨‍💻 About the Developer
-This project was developed as part of an effort to apply machine learning techniques to real-world problems. Contributions and suggestions are welcome!
+This project was developed by Pranaya as part of an effort to apply machine learning techniques to real-world problems. Contributions and suggestions are welcome!
 
 ## 🤝 Contributing
 Feel free to contribute to this project by improving the models or adding new techniques.
