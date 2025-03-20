@@ -18,6 +18,29 @@ graph TD;
 ```
 
 ![Architecture Diagram](architecture.png)
+## 📊 Dataset Features
+
+The dataset consists of the following key features:
+
+🆔 Id: Unique identifier for each property.
+
+📏 Area: The total area of the house in square feet.
+
+🛏️ Bedrooms: The number of bedrooms in the house.
+
+🛁 Bathrooms: The number of bathrooms available.
+
+🏢 Floors: The number of floors in the building.
+
+🏗️ YearBuilt: The year the house was built.
+
+📍 Location: The geographical location or neighborhood of the house.
+
+🚗 Garage: The number of parking spaces available.
+
+💲 Price: The price of the house (target variable for prediction).
+
+🏚️ Condition: The overall condition of the house (e.g., good, average, poor)
 
 ## ✨ Features
 - **📍 Location-Based Pricing**: Understands the effect of locality on prices.
