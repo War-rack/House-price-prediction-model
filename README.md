@@ -110,7 +110,20 @@ graph TD;
 ### 📦 Install Dependencies
 
 ```bash
-pip install opencv-python numpy torch torchvision transformers paddleocr nltk symspellpy matplotlib albumentations paddlepaddle pillow
+!sudo apt install tesseract-ocr
+!pip install pytesseract opencv-python numpy easyocr fuzzywuzzy python-Levenshtein nltk
+!pip install pytesseract opencv-python pandas fuzzywuzzy spacy transformers
+!pip install pytesseract opencv-python numpy easyocr fuzzywuzzy python-Levenshtein nltk
+# Import necessary libraries
+import cv2
+import pytesseract
+import numpy as np
+import easyocr
+import re
+import nltk
+from nltk.corpus import words
+from PIL import Image
+import matplotlib.pyplot as plt
 ```
 
 ## 🔗 API Configuration
@@ -120,10 +133,7 @@ pip install opencv-python numpy torch torchvision transformers paddleocr nltk sy
 - **Endpoint:** `https://api.drugbank.com/v1/drugs/search?q=Paracetamol`
 - **Returns:** Medicine name, solution, and related information.
 
-### ✍️ AI Models
 
-- `trocr-base-handwritten`
-- `trocr-base-printed`
 
 ### ▶️ Running the Application
 
